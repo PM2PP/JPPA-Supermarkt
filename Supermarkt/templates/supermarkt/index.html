@@ -43,6 +43,7 @@ table{
 			<thead class = "thead-dark">
 				<tr>
 					<th scope="col">Produkt</th>
+					<th scope="col">Kategorie</th>
 					<th scope="col">Hersteller</th>
 					<th scope="col">Lieferant</th>
 					<th scope="col">Preis</th>
@@ -54,6 +55,7 @@ table{
 				{% for p in produkt %}
 				<tr>
 					<td>{{ p.Produkt }}</td>
+					<td>{{ p.Kategorie }}</td>
 					<td>{{ p.Hersteller }}</td>
 					<td>{{ p.Lieferant }}</td>
 					<td>{{ p.Preis }}</td>

@@ -42,10 +42,9 @@ table {
 		<table class="table table-striped table table-bordered">
 			<thead class="thead-dark">
 				<tr>
-					<th style="width: 20%">Bezeichnung</th>
-					<th style="width: 20%">Kapazitaet</th>
-					<th style="width: 20%">Standort</th>
-					<th style="width: 20%">Groesse</th>
+					<th>Bezeichnung</th>
+					<th>Kapazitaet</th>
+					<th>Standort</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -54,7 +53,6 @@ table {
 					<td>{{ r.Bezeichnung }}</td>
 					<td>{{ r.Kapazitaet }}</td>
 					<td>{{ r.Standort }}</td>
-					<td>{{ r.Groesse }}</td>
 				</tr>
 				{% endfor %} {% endif %}
 			</tbody>
