@@ -28,24 +28,66 @@ body {
 	background-color: white;
 	color: black;
 }
-table{ 
-	margin-top: 20px; 
+
+table {
+	margin-top: 20px;
 }
 </style>
 </head>
 <body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					href="http://127.0.0.1:8000/">Home <span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="http://127.0.0.1:8000/index/">Sortiment</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="http://127.0.0.1:8000/liefer/">Lieferant</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="http://127.0.0.1:8000/lager/">Lager</a></li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
+	</nav>
 	<div class="container weiterrunter">
 		<h1>{{Titel}}</h1>
 		<hr>
 		{% if produkt %}
 
 		<table class="table table-striped table table-bordered">
-			<thead class = "thead-dark">
+			<thead class="thead-dark">
 				<tr>
-					<th scope="col">Produkt</th>
+					<th scope="col"><select class="custom-select">
+							<option selected>Produkte</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+					</select></th>
 					<th scope="col">Kategorie</th>
-					<th scope="col">Hersteller</th>
-					<th scope="col">Lieferant</th>
+					<th scope="col"><select class="custom-select">
+							<option selected>Hersteller</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option></th>
+					<th scope="col"><select class="custom-select">
+							<option selected>Lieferant</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option></th>
 					<th scope="col">Preis</th>
 					<th scope="col">Standort</th>
 					<th scope="col">Anzahl</th>
@@ -65,7 +107,12 @@ table{
 				{% endfor %} {% endif %}
 			</tbody>
 		</table>
-
+		<a href="http://127.0.0.1:8000/admin/Supermarkt/produkte/add/"
+			class="badge badge-primary">Produkt hinzufügen</a> <a
+			href="http://127.0.0.1:8000/admin/Supermarkt/produkte/"
+			class="badge badge-secondary">Produkt entfernen</a> <a
+			href="http://127.0.0.1:8000/admin/Supermarkt/produkte/"
+			class="badge badge-success">Preis ändern</a>
 
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
