@@ -70,26 +70,36 @@ table {
 		<table id="table_id" class="display">
 			<thead>
 				<tr>
-					<th scope="col">Bezeichnung</th>
-					<th scope="col">Kapazitaet</th>
+					<th scope="col">Produkte</th>
+					<th scope="col">Kategorie</th>
+					<th scope="col">Hersteller</th>
+					<th scope="col">Lieferant</th>
+					<th scope="col">Preis</th>
 					<th scope="col">Standort</th>
+					<th scope="col">Anzahl</th>
 				</tr>
 			</thead>
 			<tbody>
-				{% for r in regal %}
+				{% for p in produkt %}
 				<tr>
-					<td>{{ r.Bezeichnung}}</td>
-					<td>{{ r.Kapazitaet}}</td>
-					<td>{{ r.Standort}}</td>
+					<td>{{ p.Produkt }}</td>
+					<td>{{ p.Kategorie }}</td>
+					<td>{{ p.Hersteller }}</td>
+					<td>{{ p.Lieferant }}</td>
+					<td>{{ p.Preis }}</td>
+					<td>{{ p.Standort}}</td>
+					<td>{{ p.Anzahl}}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 
-		<a href="http://127.0.0.1:8000/admin/Supermarkt/regal/add/"
-			class="btn btn-outline-primary btn-lg" role="button">Regal hinzufügen</a> <a
-			href="http://127.0.0.1:8000/admin/Supermarkt/regal/"
-			class="btn btn-outline-dark btn-lg" role="button">Regal entfernen</a>
+		<a href="http://127.0.0.1:8000/admin/Supermarkt/produkte/add/"
+			class="badge badge-primary">Produkt hinzufügen</a> <a
+			href="http://127.0.0.1:8000/admin/Supermarkt/produkte/"
+			class="badge badge-secondary">Produkt entfernen</a> <a
+			href="http://127.0.0.1:8000/admin/Supermarkt/produkte/"
+			class="badge badge-success">Preis ändern</a>
 
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -112,15 +122,9 @@ table {
 
 	<script type="text/javascript"
 		src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
-	<script type="text/javascript" src="jquery.dataTables.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-	$('#table_id').DataTable( { 
-	   "language": {
-                "url": "dataTables.german.lang"
-                 }
-                });
-            });
+	<script>
+	$(document).ready( function() {
+	$('#table_id').DataTable();} );
 	</script>
 
 	{% endblock js %}

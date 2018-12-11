@@ -17,7 +17,7 @@ div.weiterrunter {
 hr {
 	width: 100%;
 	height: 5px;
-	margin: 0 auto;
+	margin: auto 10;
 	color: blue;
 	background: blue;
 }
@@ -30,7 +30,7 @@ body {
 }
 
 table {
-	margin-top: 20px;
+	margin: 100px;
 }
 </style>
 </head>
@@ -66,28 +66,14 @@ table {
 	<div class="container weiterrunter">
 		<h1>{{Titel}}</h1>
 		<hr>
-		{% if produkt %}
 
-		<table class="table table-striped table table-bordered">
-			<thead class="thead-dark">
+		<table id="table_id" class="display">
+			<thead>
 				<tr>
-					<th scope="col"><select class="custom-select">
-							<option selected>Produkte</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-					</select></th>
+					<th scope="col">Produkte</th>
 					<th scope="col">Kategorie</th>
-					<th scope="col"><select class="custom-select">
-							<option selected>Hersteller</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option></th>
-					<th scope="col"><select class="custom-select">
-							<option selected>Lieferant</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option></th>
+					<th scope="col">Hersteller</th>
+					<th scope="col">Lieferant</th>
 					<th scope="col">Preis</th>
 					<th scope="col">Standort</th>
 					<th scope="col">Anzahl</th>
@@ -104,15 +90,16 @@ table {
 					<td>{{ p.Standort}}</td>
 					<td>{{ p.Anzahl}}</td>
 				</tr>
-				{% endfor %} {% endif %}
+				{% endfor %}
 			</tbody>
 		</table>
+
 		<a href="http://127.0.0.1:8000/admin/Supermarkt/produkte/add/"
-			class="badge badge-primary">Produkt hinzufügen</a> <a
+			class="btn btn-outline-primary btn-lg" role="button">Produkt hinzufügen</a> <a
 			href="http://127.0.0.1:8000/admin/Supermarkt/produkte/"
-			class="badge badge-secondary">Produkt entfernen</a> <a
+			class="btn btn-outline-dark btn-lg" role="button">Produkt entfernen</a> <a
 			href="http://127.0.0.1:8000/admin/Supermarkt/produkte/"
-			class="badge badge-success">Preis ändern</a>
+			class="btn btn-outline-success btn-lg" role="button">Preis ändern</a>
 
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -126,5 +113,20 @@ table {
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
+
+	{% block js %}
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
+
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+	<script>
+	$(document).ready( function() {
+	$('#table_id').DataTable();} );
+	</script>
+
+	{% endblock js %}
 </body>
 </html>

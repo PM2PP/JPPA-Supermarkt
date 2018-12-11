@@ -26,9 +26,9 @@ body {
 <style>
 hr {
 	width: 100%;
-	height: 5px;
-	margin: 0 auto;
-	color: blue;
+	height: 2px;
+	margin: 10 auto;
+	color: white;
 	background: blue;
 }
 
@@ -75,12 +75,15 @@ h1 {
 	<div class="container weiterrunter">
 		<h1>{{Titel}}</h1>
 		<p class="lead">Herzlich willkommen beim JPPA Supermarkt</p>
-		<li><a href=index>Sortiment</a></li>
+		<li><a href="http://127.0.0.1:8000/index"
+			class="btn btn-outline-primary btn-lg" role="button">Sortiment</a></li>
 		<hr>
-		<li><a href=liefer>Lieferant</a></li>
+		<li><a href="http://127.0.0.1:8000/liefer"
+			class="btn btn-outline-dark btn-lg" role="button">Lieferant</a></li>
 		<hr>
-		<li><a href=lager>Lager</a></li>
-		<hr>
+		<li><a href="http://127.0.0.1:8000/lager"
+			class="btn btn-outline-success btn-lg" role="button">Lager</a></li>
+		
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

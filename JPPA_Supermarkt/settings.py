@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'Supermarkt',
-    'djmoney'
+    'djmoney',
+    'django_tables2',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
