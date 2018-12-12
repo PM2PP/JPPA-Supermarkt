@@ -2,13 +2,6 @@
 <html>
 <head>
 <title>JPPA Supermarkt</title>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
 <style type="text/css">
 div.weiterrunter {
 	margin-top: 40px;
@@ -35,34 +28,7 @@ table {
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link"
-					href="http://127.0.0.1:8000/">Home <span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="http://127.0.0.1:8000/index/">Sortiment</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="http://127.0.0.1:8000/liefer/">Lieferant</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="http://127.0.0.1:8000/lager/">Lager</a></li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
-		</div>
-	</nav>
 	<div class="container weiterrunter">
 		<h1>{{Titel}}</h1>
 		<hr>
@@ -94,39 +60,34 @@ table {
 			</tbody>
 		</table>
 
-		<a href="http://127.0.0.1:8000/admin/Supermarkt/produkte/add/"
-			class="badge badge-primary">Produkt hinzufügen</a> <a
-			href="http://127.0.0.1:8000/admin/Supermarkt/produkte/"
-			class="badge badge-secondary">Produkt entfernen</a> <a
-			href="http://127.0.0.1:8000/admin/Supermarkt/produkte/"
-			class="badge badge-success">Preis ändern</a>
-
 	</div>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-		crossorigin="anonymous"></script>
 
 	{% block js %}
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 	<link rel="stylesheet" type="text/css"
-		href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
-
+		href="https://cdn.datatables.net/v/dt/dt-1.10.18/af-2.3.2/b-1.5.4/sc-1.5.0/sl-1.2.6/datatables.min.css" />
+	<lik rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 	<script type="text/javascript"
-		src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
-	<script>
-	$(document).ready( function() {
-	$('#table_id').DataTable();} );
-	</script>
+		src="https://cdn.datatables.net/v/dt/dt-1.10.18/af-2.3.2/b-1.5.4/sc-1.5.0/sl-1.2.6/datatables.min.js"></script>
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
+	<script type="text/javascript" src="jquery.dataTables.js"></script>
+	<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('#table_id').dataTable( {
+            "language": {
+                "url": "dataTables.german.lang"
+            }
+        } );
+    } );
+</script>
 	{% endblock js %}
 </body>
 </html>
