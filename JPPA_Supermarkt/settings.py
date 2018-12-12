@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     
     'Supermarkt',
     'djmoney',
-    'django_tables2',
-    'django_filters',
 ]
 
 MIDDLEWARE = [

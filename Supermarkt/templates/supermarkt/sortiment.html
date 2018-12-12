@@ -44,20 +44,19 @@ table {
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link"
-					href="http://127.0.0.1:8000/bestand/">Bestand</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="http://127.0.0.1:8000/sortiment/">Sortiment</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="http://127.0.0.1:8000/liefer/">Lieferant</a></li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item"><a class="nav-link"
+				href="http://127.0.0.1:8000/bestand/">Bestand</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="http://127.0.0.1:8000/sortiment/">Sortiment</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="http://127.0.0.1:8000/liefer/">Lieferant</a></li>
+		</ul>
+		<form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="search"
+				placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
 		</div>
 	</nav>
 	<div class="container weiterrunter">
@@ -67,26 +66,30 @@ table {
 		<table id="table_id" class="display">
 			<thead>
 				<tr>
-					<th scope="col">Name</th>
-					<th scope="col">LieferantenNr.</th>
+					<th scope="col">Produkt</th>
+					<th scope="col">Kategorie</th>
+					<th scope="col">Preis</th>
+					<th scope="col">Lieferant</th>
 				</tr>
 			</thead>
 			<tbody>
-				{% for l in lieferant %}
+				{% for s in sortiment %}
 				<tr>
-					<td>{{ l.Name}}</td>
-					<td>{{ l.LiefernatenNr}}</td>
+					<td>{{ s.Produkt}}</td>
+					<td>{{ s.Kategorie}}</td>
+					<td>{{ s.Preis}}</td>
+					<td>{{ s.Lieferant}}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 
-		<a href="http://127.0.0.1:8000/admin/Supermarkt/lieferant/add/"
-			class="btn btn-outline-primary btn-lg" role="button">Lieferant
-			hinzufügen</a> <a
-			href="http://127.0.0.1:8000/admin/Supermarkt/lieferant/"
-			class="btn btn-outline-dark btn-lg" role="button">Lieferant
-			entfernen</a>
+		<a href="http://127.0.0.1:8000/admin/Supermarkt/sortiment/add/"
+			class="btn btn-outline-primary btn-lg" role="button">Produkt
+			hinzufügen</a> <a href="http://127.0.0.1:8000/admin/Supermarkt/sortiment/"
+			class="btn btn-outline-dark btn-lg" role="button">Produkt
+			entfernen</a> <a href="http://127.0.0.1:8000/admin/Supermarkt/sortiment/"
+			class="btn btn-outline-success btn-lg" role="button">Preis ändern</a>
 
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -109,9 +112,12 @@ table {
 
 	<script type="text/javascript"
 		src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
-	<script>
-	$(document).ready( function() {
-	$('#table_id').DataTable();} );
+	<script type="text/javascript" src="jquery.dataTables.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	$('#table_id').DataTable( { 
+                });
+            });
 	</script>
 
 	{% endblock js %}

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,38 +12,29 @@
 <style type="text/css">
 div.weiterrunter {
 	margin-top: 40px;
-	,
+}
+
+hr {
+	width: 100%;
+	height: 2px;
+	margin: auto 10;
+	color: blue;
+	background: blue;
 }
 </style>
 
 <style>
 body {
-	background-color: white
-}
-;
-</style>
-
-<style>
-hr {
-	width: 100%;
-	height: 2px;
-	margin: 10 auto;
-	color: white;
-	background: blue;
+	background-color: white;
+	color: black;
 }
 
-p {
-	color: black
-}
-
-h1 {
-	color: black
+table {
+	margin: 100px;
+	color: Black;
 }
 </style>
-
-
 </head>
-
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="http://127.0.0.1:8000/">Home</a>
@@ -71,18 +61,43 @@ h1 {
 			</form>
 		</div>
 	</nav>
-
 	<div class="container weiterrunter">
 		<h1>{{Titel}}</h1>
-		<p class="lead">Herzlich willkommen beim JPPA Supermarkt</p>
-		<li><a href="http://127.0.0.1:8000/bestand"
-			class="btn btn-outline-primary btn-lg" role="button">Bestand</a></li>
 		<hr>
-		<li><a href="http://127.0.0.1:8000/sortiment"
-			class="btn btn-outline-dark btn-lg" role="button">Sortiment</a></li>
-		<hr>
-		<li><a href="http://127.0.0.1:8000/liefer"
-			class="btn btn-outline-success btn-lg" role="button">Lieferant</a></li>
+
+		<table id="table_id" class="display">
+			<thead>
+				<tr>
+					<th scope="col">Produkte</th>
+					<th scope="col">Kategorie</th>
+					<th scope="col">Hersteller</th>
+					<th scope="col">Lieferant</th>
+					<th scope="col">Preis</th>
+					<th scope="col">Standort</th>
+					<th scope="col">Bestand</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for l in lager %}
+				<tr>
+					<td>{{ l.Produkt }}</td>
+					<td>{{ l.Kategorie }}</td>
+					<td>{{ l.Hersteller }}</td>
+					<td>{{ l.Lieferant }}</td>
+					<td>{{ l.Preis }}</td>
+					<td>{{ l.Standort}}</td>
+					<td>{{ l.Bestand}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="http://127.0.0.1:8000/admin/Supermarkt/lager/add/"
+			class="btn btn-outline-primary btn-lg" role="button">Produkt
+			hinzufügen</a> <a href="http://127.0.0.1:8000/admin/Supermarkt/lager/"
+			class="btn btn-outline-dark btn-lg" role="button">Produkt
+			entfernen</a> <a href="http://127.0.0.1:8000/admin/Supermarkt/lager/"
+			class="btn btn-outline-success btn-lg" role="button">Preis ändern</a>
 
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -96,5 +111,22 @@ h1 {
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
+
+	{% block js %}
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/v/dt/dt-1.10.18/af-2.3.2/b-1.5.4/sc-1.5.0/sl-1.2.6/datatables.min.css" />
+
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/v/dt/dt-1.10.18/af-2.3.2/b-1.5.4/sc-1.5.0/sl-1.2.6/datatables.min.js"></script>
+
+	<script>
+	$(document).ready( function() {
+	$('#table_id').DataTable();} );
+	</script>
+
+	{% endblock js %}
 </body>
 </html>

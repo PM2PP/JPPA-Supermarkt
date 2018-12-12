@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,28 +13,37 @@
 <style type="text/css">
 div.weiterrunter {
 	margin-top: 40px;
-}
-
-hr {
-	width: 100%;
-	height: 2px;
-	margin: auto 10;
-	color: blue;
-	background: blue;
+	,
 }
 </style>
 
 <style>
 body {
 	background-color: white;
-	color: black;
-}
-
-table {
-	margin: 100px;
 }
 </style>
+
+<style>
+hr {
+	width: 100%;
+	height: 2px;
+	margin: 10 auto;
+	color: white;
+	background: blue;
+}
+
+p {
+	color: black
+}
+
+h1 {
+	color: black
+}
+</style>
+
+
 </head>
+
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="http://127.0.0.1:8000/">Home</a>
@@ -47,11 +57,11 @@ table {
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link"
-					href="http://127.0.0.1:8000/index/">Sortiment</a></li>
+					href="http://127.0.0.1:8000/bestand/">Bestand</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="http://127.0.0.1:8000/sortiment/">Sortiment</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="http://127.0.0.1:8000/liefer/">Lieferant</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="http://127.0.0.1:8000/lager/">Lager</a></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search"
@@ -60,34 +70,16 @@ table {
 			</form>
 		</div>
 	</nav>
+
 	<div class="container weiterrunter">
 		<h1>{{Titel}}</h1>
+		<li><a href="http://127.0.0.1:8000/index"
+			class="btn btn-outline-primary btn-lg" role="button">Supermarkt</a></li>
 		<hr>
+		<li><a href="http://127.0.0.1:8000/lager"
+			class="btn btn-outline-dark btn-lg" role="button">Lager</a></li>
 
-		<table id="table_id" class="display">
-			<thead>
-				<tr>
-					<th scope="col">Bezeichnung</th>
-					<th scope="col">Kapazitaet</th>
-					<th scope="col">Standort</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for r in regal %}
-				<tr>
-					<td>{{ r.Bezeichnung}}</td>
-					<td>{{ r.Kapazitaet}}</td>
-					<td>{{ r.Standort}}</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-
-		<a href="http://127.0.0.1:8000/admin/Supermarkt/regal/add/"
-			class="btn btn-outline-primary btn-lg" role="button">Regal hinzufügen</a> <a
-			href="http://127.0.0.1:8000/admin/Supermarkt/regal/"
-			class="btn btn-outline-dark btn-lg" role="button">Regal entfernen</a>
-
+		
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -100,26 +92,5 @@ table {
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
-
-	{% block js %}
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css"
-		href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
-
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
-	<script type="text/javascript" src="jquery.dataTables.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-	$('#table_id').DataTable( { 
-	   "language": {
-                "url": "dataTables.german.lang"
-                 }
-                });
-            });
-	</script>
-
-	{% endblock js %}
 </body>
 </html>

@@ -47,13 +47,12 @@ table {
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				
 				<li class="nav-item"><a class="nav-link"
-					href="http://127.0.0.1:8000/index/">Sortiment</a></li>
+					href="http://127.0.0.1:8000/bestand/">Bestand</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="http://127.0.0.1:8000/sortiment/">Sortiment</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="http://127.0.0.1:8000/liefer/">Lieferant</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="http://127.0.0.1:8000/lager/">Lager</a></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search"
@@ -75,7 +74,7 @@ table {
 					<th scope="col">Lieferant</th>
 					<th scope="col">Preis</th>
 					<th scope="col">Standort</th>
-					<th scope="col">Anzahl</th>
+					<th scope="col">Bestand</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -87,7 +86,7 @@ table {
 					<td>{{ p.Lieferant }}</td>
 					<td>{{ p.Preis }}</td>
 					<td>{{ p.Standort}}</td>
-					<td>{{ p.Anzahl}}</td>
+					<td>{{ p.Bestand}}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
